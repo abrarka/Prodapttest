@@ -1,0 +1,20 @@
+#!/bin/sh
+
+current_dir="$(pwd)"
+
+temp_dir="$(mktemp -d)"
+cp -rp . "$temp_dir"
+cd "$temp_dir"
+
+rm package.sh bitbucket-pipelines.yml
+rm -rf .git
+git init
+git add .
+git -c "user.name=Gamma" -c "user.email=gamma.co.uk" commit --author "Gamma <gamma.co.uk>" -m "Technical test"
+
+git clean -fdx
+
+zip -r "technical-test.zip" .
+
+mv "technical-test.zip" "$current_dir"
+rm -rf "$temp_dir"

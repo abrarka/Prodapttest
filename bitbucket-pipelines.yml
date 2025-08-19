@@ -1,0 +1,13 @@
+image: maven:3-openjdk-17-slim
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: Build and Test
+          caches:
+            - maven
+          script:
+            - mvn -B verify --file pom.xml
+          after-script:
+            - pipe: atlassian/checkstyle-report:0.3.0
