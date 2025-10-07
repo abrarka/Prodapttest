@@ -36,4 +36,15 @@ Endpoints:
 * `PUT /addresses/{id}` - Updates an existing address
 * `DELETE /addresses/{id}` - Removes an existing address
 
+
 Full API documentation is visible at [this URL](http://localhost:8080/swagger-ui/index.html) once the application is running.
+
+Task :
+
+Blacklist service will return postcodes that are not servicable. Do not change anything in blacklist service.
+
+When consumer search for addresses with or without postcode filter , before returning the response make sure the addresses are not blacklisted. 
+Existing consumers of this endpoint, may not want this feature , so introduce an optional paramater for address search endpoint to ensure blacklisting is not impacting for existing consumers and based on this flag blacklisting is applied.
+
+Update relevant test classes for the same.
+
