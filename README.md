@@ -43,8 +43,9 @@ Task :
 
 Blacklist service will return postcodes that are not servicable. Do not change anything in blacklist service.
 
-When consumer search for addresses with or without postcode filter , before returning the response make sure the addresses are not blacklisted. 
+When consumer search for addresses ,  make sure the addresses that are returned are not blacklisted. If there are no address available return empty response.
 Existing consumers of this endpoint, may not want this feature , so introduce an optional paramater for address search endpoint to ensure blacklisting is not impacting for existing consumers and based on this flag blacklisting is applied.
 
 Update relevant test classes for the same.
+
 
